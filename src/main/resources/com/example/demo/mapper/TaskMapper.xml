@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TaskMapper">
+    <select id="selectAll" resultType="com.example.demo.entity.Task">
+        select * from task
+    </select>
+    <select id="select" resultType="com.example.demo.entity.Task">
+        select * from task where id = #{id}
+    </select>
+    <insert id="insert">
+        insert into task (title, due_date, checked) values (#{title}, #{dueDateString}, #{checked})
+    </insert>
+    <update id="update">
+        update task set title = #{title}, due_date = #{dueDate} , checked = #{checked} where id = #{id}
+    </update>
+    <delete id="delete">
+        delete from task where id = #{id}
+    </delete>
+</mapper>
